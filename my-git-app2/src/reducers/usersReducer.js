@@ -6,16 +6,31 @@ const initialState = {
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
       case 'GET_USERS':
-        console.log("acton.pp", action);
         return {
           ...state,
+          loading:true,
+          error: null
         }
+        break;
+
       case 'GET_USERS_FULFILLED':
-        console.log("pp", action.payload);
         return {
           ...state,
-          users: action.payload.items
+          users: action.payload.items,
+          loading:false,
+          error: null
         }
+        break;
+
+        case 'GET_USERS_REJECTED':
+          return {
+            ...state,
+            users: [],
+            loading:false,
+            error: "Inernet Server Error"
+          }
+          break;
+
       default:
         return state
     }

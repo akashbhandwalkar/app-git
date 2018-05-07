@@ -5,6 +5,7 @@ import Header from './components/header';
 import Results from './containers/results/results';
 import { connect } from 'react-redux';
 import { getUsers } from './actions';
+import Loader from './components/Loader';
 
 class App extends Component {
   constructor(props){
@@ -25,11 +26,17 @@ class App extends Component {
   }
 
   render() {
-    const { users } = this.props.usersState;
+    const { users, loading } = this.props.usersState;
     return (
       <div className="App">
         <Header filterUsers={this.filterUsers}/>
-        <Results users={users}/>
+        {
+          loading ?
+          <Loader />
+          :
+          <Results users={users}/>
+        }
+        
       </div>
     );
   }

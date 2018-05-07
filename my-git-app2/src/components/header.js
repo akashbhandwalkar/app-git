@@ -22,7 +22,7 @@ export default class Header extends Component {
     return (
         <header className="App-header">
           <input className="search" type="text" />
-          <input value={inputedUser} className="search" onChange={this.onChange} type="text" />
+          <input placeholder="enter name to search" value={inputedUser} className="search" onChange={this.onChange} type="text" />
         </header>
     );
   }

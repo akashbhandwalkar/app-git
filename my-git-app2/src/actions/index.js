@@ -1,5 +1,6 @@
+import utils from './../utils';
 
 export const getUsers = text => ({
   type: 'GET_USERS',
-  text
+  payload: utils.getUsers(text)
 })

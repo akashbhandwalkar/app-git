@@ -10,12 +10,12 @@ const usersReducer = (state = initialState, action) => {
         return {
           ...state,
         }
-      case 'GET_USERS_SUCCESS':
-        return state.map(todo =>
-          (todo.id === action.id)
-            ? {...todo, completed: !todo.completed}
-            : todo
-        )
+      case 'GET_USERS_FULFILLED':
+        console.log("pp", action.payload);
+        return {
+          ...state,
+          users: action.payload.items
+        }
       default:
         return state
     }

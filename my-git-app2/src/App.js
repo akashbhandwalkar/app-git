@@ -16,12 +16,12 @@ class App extends Component {
 
   componentDidMount(){
     if(this.props.getUsers && typeof this.props.getUsers == 'function')
-    this.props.getUsers('akash');
+      this.props.getUsers('a');
   }
 
   
   filterUsers = (input) =>{
-    console.log("input==>", input);
+    this.props.getUsers(input);
   }
 
   render() {
